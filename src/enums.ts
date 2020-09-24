@@ -3,3 +3,9 @@ export enum ItemType {
   Dessert = "dessert",
   Lunch = "lunch",
 }
+
+export enum ButtonType {
+  Reset = "reset",
+  Submit = "submit",
+  Button = "button",
+}

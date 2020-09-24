@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Menu.css";
 import { RouteComponentProps } from "@reach/router";
 import { MenuSection } from "./Components";
@@ -17,30 +17,36 @@ import {
   TacoItems,
   WingItems,
 } from "../../Components/MenuItemList";
-import { IWingCount, IWings } from "../../interfaces";
+import { IWingCount } from "../../interfaces";
+import useToggleList from "../../Components/Hooks/useToggleList";
+import Button from "../../Components/Button/Button";
+import { ButtonType } from "../../enums";
 
 const Menu: React.FC<RouteComponentProps> = () => {
+  const [isListShowing, ToggleList, setIsShowing] = useToggleList(
+    false,
+    WingItems.Sauces
+  );
+
   const renderWingsSection = () => {
     return (
       <div className="Wings">
-        {WingItems.map((item: IWings) => {
-          return (
-            <>
-              <h2>{item.ItemName}</h2>
-              <h3>
-                Count:{" "}
-                {item.Counts.map((count: IWingCount) => count.Count).join(", ")}
-              </h3>
-              <ul>
-                {item.Sauces.map((sauce: string, idx: number) => (
-                  <li key={idx}>
-                    <span>{sauce}</span>
-                  </li>
-                ))}
-              </ul>
-            </>
-          );
-        })}
+        <>
+          <h2>{WingItems.ItemName}</h2>
+          <h3>
+            Count:{" "}
+            {WingItems.Counts.map((count: IWingCount) => count.Count).join(
+              ", "
+            )}
+          </h3>
+          <Button
+            Label={isListShowing ? "Hide Sauces" : "Show Sauces"}
+            Type={ButtonType.Button}
+            isPrimary={true}
+            onClick={() => setIsShowing(!isListShowing)}
+          />
+          <ToggleList />
+        </>
       </div>
     );
   };

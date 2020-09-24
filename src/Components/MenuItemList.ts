@@ -373,34 +373,32 @@ export const TacoItems: IMenuItem[] = [
   },
 ];
 
-export const WingItems: IWings[] = [
-  {
-    id: 45,
-    ItemName: `Ron's Wings`,
-    MenuItemType: ItemType.Lunch,
-    Counts: [
-      { Count: 6, Value: 7 },
-      { Count: 12, Value: 13 },
-    ],
-    Sauces: [
-      "Mild",
-      "Medium",
-      "Buffalo",
-      "Honey Buffalo",
-      "Honey Garlic Buffalo",
-      "Lemon Pepper",
-      "Bold Cantonese BBQ",
-      "Sweet Mandarin BBQ",
-      "Kansas City BBQ",
-      "Teriyaki",
-      "Peruvian",
-      "Garlic Parmesan",
-      "Jamaican Jerk",
-      "Sweet Thai Chili",
-      "Mango Habanero",
-    ],
-  },
-];
+export const WingItems: IWings = {
+  id: 45,
+  ItemName: `Ron's Wings`,
+  MenuItemType: ItemType.Lunch,
+  Counts: [
+    { Count: 6, Value: 7 },
+    { Count: 12, Value: 13 },
+  ],
+  Sauces: [
+    "Mild",
+    "Medium",
+    "Buffalo",
+    "Honey Buffalo",
+    "Honey Garlic Buffalo",
+    "Lemon Pepper",
+    "Bold Cantonese BBQ",
+    "Sweet Mandarin BBQ",
+    "Kansas City BBQ",
+    "Teriyaki",
+    "Peruvian",
+    "Garlic Parmesan",
+    "Jamaican Jerk",
+    "Sweet Thai Chili",
+    "Mango Habanero",
+  ],
+};
 
 export const SecretMenuItems: IMenuItem[] = [
   {
