@@ -20,7 +20,16 @@ ul li {
 }
 
 .closed {
-  height: 0px;
+  animate: height 2s;
+}
+
+@keyframes animateHeight {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
 }
 
 code {

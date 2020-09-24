@@ -1,5 +1,5 @@
 import React from "react";
-import { HouseSpecialityItems } from "../../../../Components/MenuItemList";
+import { MenuItems } from "../../../../Components/MenuItemList";
 import { IHouseSpecialityItem } from "../../../../interfaces";
 import "./AboutUs.css";
 
@@ -18,12 +18,14 @@ const AboutUs: React.FC = () => {
       <p>Live bands every saturday night!</p>
       <h3>House Specialities</h3>
       <ul className="HouseSpecialities">
-        {HouseSpecialityItems.map((item: IHouseSpecialityItem, idx: number) => (
-          <li key={idx}>
-            <h4>{item.ItemName}</h4>
-            <p>{item.ItemDesc}</p>
-          </li>
-        ))}
+        {MenuItems.HouseSpecialityItems.map(
+          (item: IHouseSpecialityItem, idx: number) => (
+            <li key={idx}>
+              <h4>{item.ItemName}</h4>
+              <p>{item.ItemDesc}</p>
+            </li>
+          )
+        )}
       </ul>
     </section>
   );

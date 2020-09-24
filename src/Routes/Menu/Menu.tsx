@@ -1,22 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Menu.css";
-import { RouteComponentProps } from "@reach/router";
+import { RouteComponentProps } from "react-router-dom";
 import { MenuSection } from "./Components";
-import {
-  AppetizerItems,
-  BurgerItems,
-  ComboPlatterItems,
-  DessertMenuItems,
-  KidMenuItems,
-  PlatterItems,
-  RonsPlatterItems,
-  SaladMenuItems,
-  SandwichItems,
-  SecretMenuItems,
-  SoupMenuItems,
-  TacoItems,
-  WingItems,
-} from "../../Components/MenuItemList";
+import { MenuItems } from "../../Components/MenuItemList";
 import { IWingCount } from "../../interfaces";
 import useToggleList from "../../Components/Hooks/useToggleList";
 import Button from "../../Components/Button/Button";
@@ -25,19 +11,19 @@ import { ButtonType } from "../../enums";
 const Menu: React.FC<RouteComponentProps> = () => {
   const [isListShowing, ToggleList, setIsShowing] = useToggleList(
     false,
-    WingItems.Sauces
+    MenuItems.WingItems.Sauces
   );
 
   const renderWingsSection = () => {
     return (
       <div className="Wings">
         <>
-          <h2>{WingItems.ItemName}</h2>
+          <h2>{MenuItems.WingItems.ItemName}</h2>
           <h3>
             Count:{" "}
-            {WingItems.Counts.map((count: IWingCount) => count.Count).join(
-              ", "
-            )}
+            {MenuItems.WingItems.Counts.map(
+              (count: IWingCount) => count.Count
+            ).join(", ")}
           </h3>
           <Button
             Label={isListShowing ? "Hide Sauces" : "Show Sauces"}
@@ -53,12 +39,12 @@ const Menu: React.FC<RouteComponentProps> = () => {
 
   return (
     <section className="Menu">
-      <MenuSection SectionName={"Appetizers"} List={AppetizerItems} />
+      <MenuSection SectionName={"Appetizers"} List={MenuItems.AppetizerItems} />
       <hr />
       <MenuSection
         SectionName={"Sandwiches"}
         Desc={"All po’ boys come with your choice of ONE side"}
-        List={SandwichItems}
+        List={MenuItems.SandwichItems}
       />
       <hr />
       <MenuSection
@@ -66,23 +52,29 @@ const Menu: React.FC<RouteComponentProps> = () => {
         Desc={
           "Never frozen, certified Angus beef patties served with your choice of ONE side"
         }
-        List={BurgerItems}
+        List={MenuItems.BurgerItems}
       />
       <hr />
       <MenuSection
         SectionName={"Platters"}
         Desc={"All platters come with your choice of ONE side"}
-        List={PlatterItems}
+        List={MenuItems.PlatterItems}
       />
       <hr />
-      <MenuSection SectionName={"Combo Platters"} List={ComboPlatterItems} />
+      <MenuSection
+        SectionName={"Combo Platters"}
+        List={MenuItems.ComboPlatterItems}
+      />
       <hr />
-      <MenuSection SectionName={"Ron's Platter"} List={RonsPlatterItems} />
+      <MenuSection
+        SectionName={"Ron's Platter"}
+        List={MenuItems.RonsPlatterItems}
+      />
       <hr />
       <MenuSection
         SectionName={"Coastal Tacos'"}
         Desc={"Three tacos with your choice of ONE side"}
-        List={TacoItems}
+        List={MenuItems.TacoItems}
       />
       <hr />
       {renderWingsSection()}
@@ -90,18 +82,18 @@ const Menu: React.FC<RouteComponentProps> = () => {
       <MenuSection
         SectionName={"Kelli's Secret Menu"}
         Desc={"All sandwiches come with your choice of ONE side"}
-        List={SecretMenuItems}
+        List={MenuItems.SecretMenuItems}
       />
       <hr />
-      <MenuSection SectionName={"Salads"} List={SaladMenuItems} />
+      <MenuSection SectionName={"Salads"} List={MenuItems.SaladMenuItems} />
       <hr />
-      <MenuSection SectionName={"Soups"} List={SoupMenuItems} />
+      <MenuSection SectionName={"Soups"} List={MenuItems.SoupMenuItems} />
       <hr />
-      <MenuSection SectionName={"Kids Corner"} List={KidMenuItems} />
+      <MenuSection SectionName={"Kids Corner"} List={MenuItems.KidMenuItems} />
       <hr />
       <MenuSection
         SectionName={"Delectable Desserts"}
-        List={DessertMenuItems}
+        List={MenuItems.DessertMenuItems}
       />
     </section>
   );

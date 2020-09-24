@@ -1,8 +1,8 @@
-import { RouteComponentProps, Redirect, Link } from "@reach/router";
+import { Redirect, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "./Boundary.css";
 
-const Boundary: React.FC<RouteComponentProps> = () => {
+const Boundary: React.FC = () => {
   const [redirect, setRedirect] = useState<boolean | string>(false);
 
   useEffect(() => {
